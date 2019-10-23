@@ -133,7 +133,12 @@ class Stage3DProxy extends EventDispatcher {
         this.forceSoftware = forceSoftware;
         this._profile = profile;
 
-        requestContext(forceSoftware, _profile);
+		if (_stage3D.context3D != null) {
+			onContext3DUpdate(null);
+		}
+		else {
+			requestContext(forceSoftware, _profile);
+		}
     }
 
     private var forceSoftware:Bool ;
